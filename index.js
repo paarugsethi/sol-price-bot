@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const axios = require("axios");
-const TOKEN = "OTY3MzU5ODE0Nzc2NzkxMDcw.YmPKCA.odEsZpdpF1JL1F1QlqfE_lNy478";
+
+const express = require("express");
+require('dotenv').config();
+
+const TOKEN = process.env.TOKEN;
 
 // FETCHING PRICE IN USD
 const getPriceUSD = () => {
