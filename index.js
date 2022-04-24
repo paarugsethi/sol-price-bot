@@ -2,18 +2,21 @@ const Discord = require("discord.js");
 const axios = require("axios");
 const TOKEN = "OTY3MzU5ODE0Nzc2NzkxMDcw.YmPKCA.odEsZpdpF1JL1F1QlqfE_lNy478";
 
+// FETCHING PRICE IN USD
 const getPriceUSD = () => {
     // try{
     return axios.get("https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd")
     
 }
 
+// FETCHING PRICE IN INR
 const getPriceINR = () => {
     // try{
     return axios.get("https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=inr")
     
 }
 
+// CREATING THE CLIENT
 const client = new Discord.Client({
     intents: [
         "GUILDS",
@@ -21,10 +24,12 @@ const client = new Discord.Client({
     ]
 })
 
+// MESSAGE WHEN BOT IS RUN
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`)
 })
 
+// REPLYING WHEN COMMAND IS !solUSD
 client.on("messageCreate", (message) => {
     if (message.content == "!solUSD"){
         getPriceUSD()
@@ -40,6 +45,7 @@ client.on("messageCreate", (message) => {
     }
 })
 
+// REPLYING WHEN COMMAND IS !solINR
 client.on("messageCreate", (message) => {
     if (message.content == "!solINR"){
         getPriceINR()
@@ -55,6 +61,7 @@ client.on("messageCreate", (message) => {
     }
 })
 
+// REPLYING WHEN COMMAND IS !howtouse
 client.on("messageCreate", (message) => {
     if (message.content == "!howtouse"){
         getPriceINR()
